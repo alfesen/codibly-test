@@ -61,25 +61,28 @@ const ProductList = () => {
   const rows =
     !isLoading &&
     data!.data.map(prod => {
+
+      const {id, color, name, year} = prod
+
       return (
         <TableRow
           onClick={() => openModal(prod)}
           className={s['product-list__item']}
-          style={{ backgroundColor: prod.color }}
-          key={prod.id}>
+          style={{ backgroundColor: color }}
+          key={id}>
           <TableCell>
             <Typography style={{ textTransform: 'uppercase' }} variant='body2'>
-              {prod.id}
+              {id}
             </Typography>
           </TableCell>
           <TableCell>
             <Typography style={{ textTransform: 'uppercase' }} variant='body2'>
-              {prod.name}
+              {name}
             </Typography>
           </TableCell>
           <TableCell>
             <Typography style={{ textTransform: 'uppercase' }} variant='body2'>
-              {prod.year}
+              {year}
             </Typography>
           </TableCell>
         </TableRow>
