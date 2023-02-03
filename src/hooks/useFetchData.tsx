@@ -6,13 +6,13 @@ export const useFetchData = (
   searchTerm: string | null
 ) => {
   const [data, setData] = useState<Data>()
-  const [error, setError] = useState('')
 
   useEffect(() => {
     const fetchData = async () => {
       const res = await fetch(
         `https://reqres.in/api/products?page=${pageNumber}`
       )
+
       const data = await res.json()
 
       let filteredData = data
@@ -25,9 +25,9 @@ export const useFetchData = (
           ),
         }
       }
-      if (filteredData.data.length === 0) setError('No matching products')
       setData(filteredData)
     }
+
     fetchData()
   }, [pageNumber, searchTerm])
 
