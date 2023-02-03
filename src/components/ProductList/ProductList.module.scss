@@ -5,4 +5,17 @@
       opacity: 0.8;
     }
   }
+  &__loading {
+    text-align: center;
+    animation: rotateIcon 5s linear infinite;
+  }
+}
+
+@keyframes rotateIcon {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 360deg;
+  }
 }

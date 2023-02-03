@@ -14,7 +14,9 @@ import {
   TableFooter,
   TablePagination,
   Typography,
+  SvgIcon,
 } from '@mui/material'
+import SyncIcon from '@mui/icons-material/Sync'
 
 import { Data, Product } from '../../types'
 import { useFetchData } from '../../hooks/useFetchData'
@@ -95,6 +97,11 @@ const ProductList = () => {
 
   return (
     <Fragment>
+      {isLoading && (
+        <div className={s['product-list__loading']}>
+          <SyncIcon sx={{ fontSize: '6rem', color: '#00000066' }} />
+        </div>
+      )}
       {!isLoading && data!.data.length === 0 && <h1>No products found</h1>}
       {!isLoading && data!.data.length > 0 && (
         <Paper>
