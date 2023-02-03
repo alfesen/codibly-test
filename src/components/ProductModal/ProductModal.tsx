@@ -8,26 +8,23 @@ import {
   Typography,
   Stack,
 } from '@mui/material'
-import { Product } from '../../types'
 
-type Props = {
-  isOpened: boolean
-  onClose: Function
-  data: Product
-}
+import { ModalProps } from '../../types'
 
-const ProductModal = ({ isOpened, onClose, data }: Props) => {
+const ProductModal = ({ isOpened, onClose, data }: ModalProps) => {
+  const { id, name, year, color, pantone_value } = data
+
   return (
     <Dialog open={isOpened}>
       <DialogTitle>Complete info</DialogTitle>
       <DialogContent>
         <Stack>
-          <Typography variant='overline'>Id: {data.id}</Typography>
-          <Typography variant='overline'>Name: {data.name}</Typography>
-          <Typography variant='overline'>Year: {data.year}</Typography>
-          <Typography variant='overline'>Color: {data.color}</Typography>
+          <Typography variant='overline'>Id: {id}</Typography>
+          <Typography variant='overline'>Name: {name}</Typography>
+          <Typography variant='overline'>Year: {year}</Typography>
+          <Typography variant='overline'>Color: {color}</Typography>
           <Typography variant='overline'>
-            Pantone value: {data.pantone_value}
+            Pantone value: {pantone_value}
           </Typography>
         </Stack>
       </DialogContent>

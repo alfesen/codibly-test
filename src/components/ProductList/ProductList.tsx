@@ -1,4 +1,8 @@
+import { Fragment, useEffect, useState } from 'react'
+import { useLocation, useHistory } from 'react-router-dom'
+
 import s from './ProductList.module.scss'
+
 import {
   Table,
   TableBody,
@@ -13,9 +17,8 @@ import {
 } from '@mui/material'
 
 import { Data, Product } from '../../types'
-import { Fragment, useEffect, useState } from 'react'
-import { useLocation, useHistory } from 'react-router-dom'
 import { useFetchData } from '../../hooks/useFetchData'
+
 import ProductModal from '../ProductModal/ProductModal'
 
 type ModalData = Product | null
@@ -27,12 +30,14 @@ const ProductList = () => {
   const searchParams = new URLSearchParams(search)
   const page = +searchParams.get('page')! || 1
   const term = searchParams.get('search')! || ''
+
   const fetchData = useFetchData(page, term)
-  const [currentPage, setCurrentPage] = useState(page - 1)
+
+  const [currentPage, setCurrentPage] = useState<number>(page - 1)
   const [modalData, setModalData] = useState<ModalData>()
-  const [showModal, setShowModal] = useState(false)
+  const [showModal, setShowModal] = useState<boolean>(false)
   const [data, setData] = useState<Data>()
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState<boolean>(true)
 
   useEffect(() => {
     setData(fetchData)

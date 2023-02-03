@@ -3,7 +3,7 @@ import { ChangeEvent, useState } from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
 
 const SearchInput = () => {
-  const [searchTerm, setSearchTerm] = useState('')
+  const [searchTerm, setSearchTerm] = useState<string>('')
 
   const { pathname, search } = useLocation()
   const { replace } = useHistory()

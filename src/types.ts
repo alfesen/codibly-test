@@ -15,3 +15,10 @@ export type Data = {
   url: string
   text: string
 }
+
+
+export type ModalProps = {
+  isOpened: boolean
+  onClose: Function
+  data: Product
+}
